@@ -1,0 +1,5 @@
+#!/bin/sh
+# parts take from the code snippet at : 
+#    http://askubuntu.com/questions/39922/how-do-you-select-the-fastest-mirror-from-the-command-line
+
+wget -O- -q  https://launchpad.net/ubuntu/+archivemirrors | grep -P -B8 "statusUP|statusSIX" | grep -o -P "(f|ht)tp.*\"" | sed 's/"$//'
